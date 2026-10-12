@@ -1,0 +1,14 @@
+{
+  "id": 101,
+  "username": "johndoe",
+  "email": "johndoe@example.com",
+  "isActive": true,
+  "profile": {
+    "firstName": "John",
+    "lastName": "Doe",
+    "age": 30,
+    "phoneNumber": "555-0199"
+  },
+  "roles": ["User", "Admin"],
+  "lastLogin": null
+}
