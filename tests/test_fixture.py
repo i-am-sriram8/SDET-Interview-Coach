@@ -41,6 +41,15 @@ def api_token():
     from it. A conftest.py in a subfolder applies only to tests in that folder, and a root-level one applies to all.
 """
 
+"""
+    marker: label only, used for selection
+
+    parametrize: one function, multiple runs with different data
+
+    How do you stop a typo like @pytest.mark.smok from silently passing?” Register markers in pytest.ini and 
+    use --strict-markers, so unknown markers raise an error.
+"""
+
 
 @pytest.mark.parametrize("role, can_edit", [
     ("physician", True),
