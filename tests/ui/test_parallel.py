@@ -1,5 +1,5 @@
 """
-    pytest -n 4         # parallel with pytest-xdist
+    pytest -n 4                                         # parallel with pytest-xdist
     pytest --browser chromium --browser firefox         # cross-browser
     pytest --browser webkit
 
