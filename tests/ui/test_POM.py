@@ -6,6 +6,7 @@
 """ 
 
 # Page Object
+import re, pytest
 from playwright.sync_api import Page, expect
 
 class LoginPage:
@@ -30,13 +31,13 @@ def test_valid_login(page):
     expect(page).to_have_url(re.compile(r".*/dashboard"))
 
 
-# Above same thing with fixture
-# the below one should be defined in the confest.py
+#   Above same thing with fixture
+#   the below one should be defined in the confest.py
 @pytest.fixture
-def login_page(page):           # asks for the built-in 'page' fixture
-    return LoginPage(page)      # builds the page object once here
+def login_page(page):           #   asks for the built-in 'page' fixture
+    return LoginPage(page)      #   builds the page object once here
 
-# test file
+#   test file
 def test_valid_login(login_page):
     login_page.open()
     login_page.sign_in("physician@test.com", "secret")

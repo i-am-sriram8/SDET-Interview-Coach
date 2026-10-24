@@ -2,6 +2,8 @@
     3. What is conftest.py?
     A special file where shared fixtures and hooks live. pytest finds it automatically, so you never import 
     from it. A conftest.py in a subfolder applies only to tests in that folder, and a root-level one applies to all.
+
+    Fixtures in conftest.py handle browser auth and test data.
 """
 
 import pytest

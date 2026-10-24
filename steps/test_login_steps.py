@@ -13,9 +13,9 @@
 from pytest_bdd import scenarios, given, when, then, parsers
 from playwright.sync_api import expect
 
-scenarios("../features/login.feature")
+scenarios("../features/login.feature")                                      #   scenarios(...) turns every scenario in the file into a pytest test.
 
-@given("the user is on the login page")
+@given("the user is on the login page")                                     #   Steps reuse fixtures, so POM and BDD combine naturally.
 def open_login(login_page):
     login_page.open()
 
@@ -27,3 +27,12 @@ def sign_in(login_page, role):
 @then("the dashboard is shown")
 def dashboard(page):
     expect(page.get_by_role("heading", name="Dashboard")).to_be_visible()
+
+
+"""
+Pass data between steps with target_fixture
+
+@when("the user creates an inquiry", target_fixture="inquiry_id")
+def create_inquiry(...):
+    return new_id
+"""

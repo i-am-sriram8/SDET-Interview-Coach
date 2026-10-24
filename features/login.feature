@@ -1,4 +1,6 @@
-@smoke
+# Gherkin tags like @smoke become pytest markers, so pytest -m smoke works.
+
+@smoke                                      
 Feature: Login
 
     Scenario Outline: Role-based login
