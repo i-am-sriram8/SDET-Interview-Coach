@@ -13,6 +13,6 @@
     A screenshot shows one moment. A trace shows each step, the network calls, and the DOM before and after the failure.
 
     How do you report results?
-    pytest --junitxml=report.xml for CI, pytest-html for a simple HTML report, or Allure for richer reports with steps and 
-    attachments.
+    pytest --junitxml=report.xml for CI, pytest-html for a simple HTML report, or Allure for ricker reports with steps and attachments. In
+    GitHub Actions, upload the report and traces as artifacts.
 """

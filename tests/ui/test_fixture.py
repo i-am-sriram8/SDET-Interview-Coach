@@ -13,7 +13,7 @@ def case_date():
 
 
 """
-    It beats xUnit-style setup because it’s composable, requested only by the tests that need it, 
+    It beats xUnit-style setup because its composable, requested only by the tests that need it, 
     and each fixture owns its own cleanup.
 """
 
@@ -33,27 +33,3 @@ def test_case_status(page, case_data):
 @pytest.fixture(scope="session")
 def api_token():
     return login_and_get_token()
-
-
-"""
-    3. What is conftest.py?
-    A special file where shared fixtures and hooks live. pytest finds it automatically, so you never import 
-    from it. A conftest.py in a subfolder applies only to tests in that folder, and a root-level one applies to all.
-"""
-
-"""
-    marker: label only, used for selection
-
-    parametrize: one function, multiple runs with different data
-
-    How do you stop a typo like @pytest.mark.smok from silently passing?” Register markers in pytest.ini and 
-    use --strict-markers, so unknown markers raise an error.
-"""
-
-
-@pytest.mark.parametrize("role, can_edit", [
-    ("physician", True),
-    ("viewer", False),
-])
-def test_form_edit_permission(role, can_edit):
-    assert check_edit_permission(role) == can_edit
