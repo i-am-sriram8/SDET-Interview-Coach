@@ -4,6 +4,8 @@
     from it. A conftest.py in a subfolder applies only to tests in that folder, and a root-level one applies to all.
 
     Fixtures in conftest.py handle browser auth and test data.
+
+    With pytest-playwright, override the context args in confest.py
 """
 
 import pytest

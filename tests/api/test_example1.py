@@ -9,5 +9,11 @@
         pm.expect(body.id).to.be.a("number");
     });
 
-    pm.environment.set("case_id", body.id);
+    pm.environment.set("case_id", body.id);             // save for next request
+
+
+    What is meant by pre-request scripts?
+    A pre-request script runs before the request, for example to generate unique data or fetch a token
+
+    pm.variables.set("email", `user_${Date.now()}@test.com`);
 """

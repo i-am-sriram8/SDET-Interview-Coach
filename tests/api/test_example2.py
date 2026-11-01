@@ -1,13 +1,12 @@
 import requests
 from jsonschema import validate
 
-BASE = "httsp://api.example.com"
-
-
+BASE = "https://api.example.com"
 
 def test_create_case(auth_headers):
     payload = {"patient_id": 12, "type": "inquiry"}
-    resp = requests.get(f"{BASE}/cases", json=payload, headers=auth+headers, timeout=10)
+    resp = requests.get(f"{BASE}/cases", json=payload, headers=auth_headers, timeout=10)
+    #   Always set a timeout, because requests waits forever by default.
 
     assert resp.status_code == 201
     body = resp.json()

@@ -12,6 +12,7 @@
     use --strict-markers, so unknown markers raise an error.
 """
 import pytest
+from playwright.sync_api import Page, expect
 
 @pytest.mark.smoke
 def test_login(page):
@@ -31,3 +32,18 @@ def test_form_edit_permission(role, can_edit):
 @pytest.mark.parametrize("status", ["open", "closed", "pending"])
 def test_case_filter(page, status):
     ... 
+
+
+@pytest.mark.parametrize(
+    "query,expected",
+    [
+        ("laptop", "Laptops"),
+        ("phone", "Phones"),
+        ("camera", "Cameras"),
+    ],
+)
+def test_search(page: Page, query: str, expected: str):
+    page.goto("https://www.example/com")
+    page.get_by_placeholder("Search products").fill(query)
+    page.get_by_role("button", name="Search").click()
+    expect(page.get_by_role("heading")).to_contain_text(expected)

@@ -1,3 +1,6 @@
+import requests, pytest
+
+
 @pytest.mark.parametrize("payload, expected", [
     ({}, 400),                                              # missing fields
     ({"patient_id": "abc", "type": "inquiry"}, 400),        # wrong type
